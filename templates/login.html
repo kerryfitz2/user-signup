@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
+{% block extra_head_content %}
+<style>
+    .error { color:red; }
+    form {
+        background-color: #eee;
+        padding: 20px;
+        margin: 0 auto;
+        width: 540px;
+        font: 16px sans-serif;
+        border-radius: 10px;
+    }
+    h1 { text-align: center }
+</style>
+{% endblock %}
 {% block content %}
-    <h1>Sign Up</h1>
+    <h1>User Sign Up</h1>
     <form method = "post">
         <label for = "username">Username:
             <input id = "username" type = "text" name = "username" />
@@ -10,8 +24,8 @@
             <input id = "password" type = "text" name = "password" />
         </label>
         <p class = "error">{{password_error}}</p>
-        <label for = "verify_password">Verify Password:
-            <input id = "verify_password" type = "text" name = "veriify_password" />
+        <label for = "verify">Verify Password:
+            <input id = "verify" type = "text" name = "verify" />
         </label>
         <p class = "error">{{verify_error}}</p>
         <label for = "email">Email (optional):

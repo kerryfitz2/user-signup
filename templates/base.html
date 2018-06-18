@@ -1,7 +1,8 @@
 <!doctype html>
 <hmtl>
     <head>
-        <title> {{title}}</title>
+        {% block extra_head_content  %}
+        {% endblock %}
     </head>
     <body>
         {% block content %}
