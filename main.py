@@ -14,6 +14,8 @@ def validate_info():
     password = request.form["password"]
     verify = request.form["verify"]
     email = request.form["email"]
+    mail = email
+    name = username
 
     username_error = ""
     password_error = ""
@@ -37,18 +39,8 @@ def validate_info():
         password_error = "Passwords must be under 20 characters long"
     elif " " in password:
         password_error = "Passwords may not contain a space"
-    elif password != verify:
-        password_error = "Your passwords need to match"
 
-    if verify == "":
-        verify_error = "Please confirm your password"
-    elif len(verify) < 3:
-        verify_error = "Passwords must be atleast 3 characters long"
-    elif len(verify) > 20:
-        verify_error = "Passwords must be under 20 characters long"
-    elif " " in verify:
-        verify_error = "Passwords may not contain a space"
-    elif verify != password:
+    if verify != password:
         verify_error = "Your passwords need to match"
     
     if (len(email) >= 1 and len(email) < 3) or len(email) > 20:
@@ -74,6 +66,8 @@ def validate_info():
         username = username,
         password = password,
         verify = verify,
-        email = email)
+        email = email,
+        mail = email,
+        name = username)
         
 app.run()
